@@ -10,9 +10,19 @@
         margin:0;
         padding:0;
       }
+      .fullscreen-button{
+        position:absolute;
+        top:0;
+        left:0;
+        z-index: 1000;
+        background: red;
+        padding:100px;
+        display:block;
+      }
     </style>
   </head>
   <body>
+    <a href="#" class='fullscreen-button'>fullscreen</a>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pixi.js/4.5.1/pixi.min.js"></script>
     <script src="pixi-particles.min.js" charset="utf-8"></script>
     <script src="index.js" charset="utf-8"></script>

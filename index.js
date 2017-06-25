@@ -94,8 +94,42 @@ window.onload = ()=>{
       // creates frame-independent tranformation
       // bunny.rotation += 0.1 * delta;
   });
+
+  document.querySelector('.fullscreen-button').addEventListener('click',function(){
+    ElementRequestFullscreen(document.body);
+    document.querySelector('.fullscreen-button').style.display='none';
+  });
 };
 
+// http://hakuhin.jp/js/fullscreen.html
+function DocumentIsEnabledFullscreen(document_obj){
+	return (
+		document_obj.fullscreenEnabled ||
+		document_obj.webkitFullscreenEnabled ||
+		document_obj.mozFullScreenEnabled ||
+		document_obj.msFullscreenEnabled ||
+		false
+	);
+}
+
+// http://hakuhin.jp/js/fullscreen.html
+function ElementRequestFullscreen(element){
+	var list = [
+		"requestFullscreen",
+		"webkitRequestFullScreen",
+		"mozRequestFullScreen",
+		"msRequestFullscreen"
+	];
+	var i;
+	var num = list.length;
+	for(i=0;i < num;i++){
+		if(element[list[i]]){
+			element[list[i]]();
+			return true;
+		}
+	}
+	return false;
+}
 
 // window.onload = () => {
 //     var app = new PIXI.Application(window.innerWidtn, window.innerHeight, {
@@ -239,8 +273,10 @@ function createEmitter(container){
     		"minimumScaleMultiplier": 1
     	},
     	"color": {
-    		"start": "#fb1010",
-    		"end": "#f5b830"
+    		// "start": "#fb1010",
+    		"start": "#ffffff",
+    		// "end": "#f5b830"
+    		"end": "#ffffff"
     	},
     	"speed": {
     		"start": 200,
